@@ -1,0 +1,1481 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Análisis de sentimientos y NLP &#8212; Maestría en Estadística Aplicada</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo-uninorte.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Maestría en Estadística Aplicada</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Machine Learning
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dash_jbook.html">
+   Introducción a
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Dash
+    </span>
+   </code>
+   y
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Jupyter
+    </span>
+    <span class="pre">
+     Book
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervised_learning.html">
+   Aprendizaje supervisado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_evaluation.html">
+   Evaluación de modelos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chains_pipelines.html">
+   Cadenas de Algoritmos y Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="unsupervised_learning.html">
+   Aprendizaje de maquinas no supervisado
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/sentiment_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsentiment_analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/sentiment_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-training-process">
+   The training process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words">
+     Bag of words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-relevant-are-words-term-frequency-inverse-document-frequency">
+     How relevant are words? Term frequency-inverse document frequency
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-clean-up-yay">
+   Data clean up (yay…)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-stop-words">
+     Removing stop words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-special-characters-and-trash">
+     Removing special characters and “trash”
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-logistic-regression">
+   Training Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#and-you-re-done-i-hope-you-liked-this">
+   And you’re done! I hope you liked this!
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Análisis de sentimientos y NLP</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-training-process">
+   The training process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-analysis">
+   Sentiment analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words">
+     Bag of words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-relevant-are-words-term-frequency-inverse-document-frequency">
+     How relevant are words? Term frequency-inverse document frequency
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-clean-up-yay">
+   Data clean up (yay…)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-stop-words">
+     Removing stop words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#removing-special-characters-and-trash">
+     Removing special characters and “trash”
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training-logistic-regression">
+   Training Logistic Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#and-you-re-done-i-hope-you-liked-this">
+   And you’re done! I hope you liked this!
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-sentimientos-y-nlp">
+<h1>Análisis de sentimientos y NLP<a class="headerlink" href="#analisis-de-sentimientos-y-nlp" title="Permalink to this headline">#</a></h1>
+<section id="the-training-process">
+<h2>The training process<a class="headerlink" href="#the-training-process" title="Permalink to this headline">#</a></h2>
+<p>In order for logistic regression to learn, we need to repeat the process descrived before several times. Each one of these times is called an <strong>epoch</strong>. The number of epochs to run depends on the problem and the training data. It is… yes, another tunnable parameter of the algorithm.</p>
+<p>The set of all tunnable parameters is called <strong>hyperparameters</strong> of the model.</p>
+<p>Like with the leatning rate, we need to be careful when choosing the number of epochs: If we train too many epochs, we risk <strong>overfitting</strong>. This means that our model will “memorize” the training data and will generalize badly when presented new data.</p>
+<p>If we train too little, it will fail to find any pattern and the prediction accuracy will be very low. This is known as <strong>underfitting</strong>.</p>
+<p>There are techniques that help prevent overfitting. These <strong>regularization</strong> techniques are out of the scope of this tutorial, but… guess! It’s also something to tune and experiment with :)</p>
+<p>This is why when training a model you need to set aside a <em>test dataset</em> in order to know the accuracy of your algorithm in unknown data. The test dataset will <strong>never</strong> be used during training</p>
+</section>
+<section id="sentiment-analysis">
+<h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">#</a></h2>
+<p>Let’s first of all have a look at the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1">#Load the data into a DataFrame</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/train.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+
+<span class="n">train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ItemID</th>
+      <th>Sentiment</th>
+      <th>SentimentText</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>is so sad for my APL frie...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>0</td>
+      <td>I missed the New Moon trail...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>omg its already 7:30 :O</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>0</td>
+      <td>.. Omgaga. Im sooo  im gunna CRy. I'...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>i think mi bf is cheating on me!!!   ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0</td>
+      <td>or i just worry too much?</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>1</td>
+      <td>Juuuuuuuuuuuuuuuuussssst Chillin!!</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0</td>
+      <td>Sunny Again        Work Tomorrow  :-|  ...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>1</td>
+      <td>handed in my uniform today . i miss you ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>1</td>
+      <td>hmmmm.... i wonder how she my number @-)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As we can see, the structure of a twit varies a lot between twit and twit. They have different lengths, letters, numbers, extrange characters, etc.</p>
+<p>It is also important to note that <strong>a lot</strong> of words are not correctly spelled, for example the word <em>“Juuuuuuuuuuuuuuuuussssst”</em> or the word <em>“frie”</em> instear of <em>“friend”</em></p>
+<p>This makes it hard to mesure how positive or negative are the words withing the corpus of twits. If they were all correct dictionary words, we could use a <strong>lexicon</strong> to punctuate words. However because of the nature of social media language, we cannot do that.</p>
+<p>So we need a way of scoring the words such that words that appear in positive twits have greater score that those that appear in negative twits.</p>
+<p>But first… how do we represent the twits as vectors we can input to our algorithm?</p>
+<section id="bag-of-words">
+<h3>Bag of words<a class="headerlink" href="#bag-of-words" title="Permalink to this headline">#</a></h3>
+<p>One thing we could do to represent the twits as equal-sized vectors of numbers is the following:</p>
+<ul class="simple">
+<li><p>Create a list (vocabulary) with all the unique words in the whole corpus of twits.</p></li>
+<li><p>We construct a feature vector from each twit that contains the counts of how often each word occurs in the particular twit</p></li>
+</ul>
+<p><em>Note that since the unique words in each twit represent only a small subset of all the words in the bag-of-words vocabulary, the feature vectors will mostly consist of zeros</em></p>
+<p>Let’s construct the bag of words. We will work with a smaller example for illustrative purposes, and at the end we will work with our real data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="n">twits</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;This is amazing!&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ML is the best, yes it is&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;I am not sure about how this is going to end...&#39;</span>
+<span class="p">]</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">bag</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">twits</span><span class="p">)</span>
+
+<span class="n">count</span><span class="o">.</span><span class="n">vocabulary_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;this&#39;: 13,
+ &#39;is&#39;: 7,
+ &#39;amazing&#39;: 2,
+ &#39;ml&#39;: 9,
+ &#39;the&#39;: 12,
+ &#39;best&#39;: 3,
+ &#39;yes&#39;: 15,
+ &#39;it&#39;: 8,
+ &#39;am&#39;: 1,
+ &#39;not&#39;: 10,
+ &#39;sure&#39;: 11,
+ &#39;about&#39;: 0,
+ &#39;how&#39;: 6,
+ &#39;going&#39;: 5,
+ &#39;to&#39;: 14,
+ &#39;end&#39;: 4}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see from executing the preceding command, the vocabulary is stored in a Python dictionary that maps the unique words to integer indices. Next, let’s print the feature vectors that we just created:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bag</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+       [0, 0, 0, 1, 0, 0, 0, 2, 1, 1, 0, 0, 1, 0, 0, 1],
+       [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0]], dtype=int64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each index position in the feature vectors corresponds to the integer values that are stored as dictionary items in the CountVectorizer vocabulary. For example, the first feature at index position 0 resembles the count of the word ‘about’ , which only occurs in the last document, and the word ‘is’ , at index position 7, occurs in all three twits (two times in the second twit). These values in the feature vectors are also called the <strong>raw term frequencies</strong>: <code class="docutils literal notranslate"><span class="pre">tf(t,d</span> <span class="pre">)</span></code> —the number of times a term <code class="docutils literal notranslate"><span class="pre">t</span></code> occurs in a document <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
+</section>
+<section id="how-relevant-are-words-term-frequency-inverse-document-frequency">
+<h3>How relevant are words? Term frequency-inverse document frequency<a class="headerlink" href="#how-relevant-are-words-term-frequency-inverse-document-frequency" title="Permalink to this headline">#</a></h3>
+<p>We could use these raw term frequencies to score the words in our algorithm. There is a problem though: If a word is very frequent in <em>all</em> documents, then it probably doesn’t carry a lot of information. In order to tacke this problem we can use <strong>term frequency-inverse document frequency</strong>, which will reduce the score the more frequent the word is accross all twits. It is calculated like this:</p>
+<p>\begin{equation*}
+tf-idf(t,d) = tf(t,d) ~ idf(t,d)
+\end{equation*}</p>
+<p><em>tf(t,d)</em> is the raw term frequency descrived above. <em>idf(t,d)</em> is the inverse document frequency, than can be calculated as follows:</p>
+<p>\begin{equation*}
+\log \frac{n_d}{1+df\left(d,t\right)}
+\end{equation*}</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the total number of documents and <em>df(t,d)</em> is the number of documents where the term <code class="docutils literal notranslate"><span class="pre">t</span></code> appears.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">1</span></code> addition in the denominator is just to avoid zero term for terms that appear in all documents. Ans the <code class="docutils literal notranslate"><span class="pre">log</span></code> ensures that low frequency term don’t get too much weight.</p>
+<p>Fortunately for us <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> does all those calculations for us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span>
+
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span><span class="n">use_idf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                         <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span>
+                         <span class="n">smooth_idf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Feed the tf-idf transformer with our previously created Bag of Words</span>
+<span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">bag</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.  , 0.  , 0.72, 0.  , 0.  , 0.  , 0.  , 0.43, 0.  , 0.  , 0.  ,
+        0.  , 0.  , 0.55, 0.  , 0.  ],
+       [0.  , 0.  , 0.  , 0.4 , 0.  , 0.  , 0.  , 0.47, 0.4 , 0.4 , 0.  ,
+        0.  , 0.4 , 0.  , 0.  , 0.4 ],
+       [0.33, 0.33, 0.  , 0.  , 0.33, 0.33, 0.33, 0.2 , 0.  , 0.  , 0.33,
+        0.33, 0.  , 0.25, 0.33, 0.  ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, words that appear in all documents like <em>is</em> (with 0.47 ), get a lower score than others that don’t appear in all documents, like <em>amazing</em> (with 0.72).</p>
+<p>Note also that <code class="docutils literal notranslate"><span class="pre">norm='l2'</span></code> parameter: This is an important one, and what is doing is normalize the tf-idfs so that they’re all in the same scale and thus work better with Logistic Regression.</p>
+</section>
+</section>
+<section id="data-clean-up-yay">
+<h2>Data clean up (yay…)<a class="headerlink" href="#data-clean-up-yay" title="Permalink to this headline">#</a></h2>
+<section id="removing-stop-words">
+<h3>Removing stop words<a class="headerlink" href="#removing-stop-words" title="Permalink to this headline">#</a></h3>
+<p>Now that we know how to format and score our input, we can start doing the analysis! Can we?… Well, we <em>can</em>, but let’s look at our <strong>real</strong> vocabulary. Specifically, the most common words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">vocab</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">twit</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">SentimentText</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">twit</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+        <span class="n">vocab</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">vocab</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;&#39;, 123916),
+ (&#39;I&#39;, 32879),
+ (&#39;to&#39;, 28810),
+ (&#39;the&#39;, 28087),
+ (&#39;a&#39;, 21321),
+ (&#39;you&#39;, 21180),
+ (&#39;i&#39;, 15995),
+ (&#39;and&#39;, 14565),
+ (&#39;it&#39;, 12818),
+ (&#39;my&#39;, 12385),
+ (&#39;for&#39;, 12149),
+ (&#39;in&#39;, 11199),
+ (&#39;is&#39;, 11185),
+ (&#39;of&#39;, 10326),
+ (&#39;that&#39;, 9181),
+ (&#39;on&#39;, 9020),
+ (&#39;have&#39;, 8991),
+ (&#39;me&#39;, 8255),
+ (&#39;so&#39;, 7612),
+ (&#39;but&#39;, 7220)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the most common words are meaningless in terms of sentiment: <em>I, to, the, and</em>… they don’t give any information on positiveness or negativeness. They’re basically <strong>noise</strong> that can most probably be eliminated. Let’s see the whole distribution to convince ourselves of this:</p>
+<ul class="simple">
+<li><p>Primero se debe instalar <code class="docutils literal notranslate"><span class="pre">bokeh</span></code> utilziando la siguiente orden</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">LabelSet</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">output_notebook</span>
+<span class="n">output_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+        .bk-notebook-logo {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAOkSURBVDiNjZRtaJVlGMd/1/08zzln5zjP1LWcU9N0NkN8m2CYjpgQYQXqSs0I84OLIC0hkEKoPtiH3gmKoiJDU7QpLgoLjLIQCpEsNJ1vqUOdO7ppbuec5+V+rj4ctwzd8IIbbi6u+8f1539dt3A78eXC7QizUF7gyV1fD1Yqg4JWz84yffhm0qkFqBogB9rM8tZdtwVsPUhWhGcFJngGeWrPzHm5oaMmkfEg1usvLFyc8jLRqDOMru7AyC8saQr7GG7f5fvDeH7Ej8CM66nIF+8yngt6HWaKh7k49Soy9nXurCi1o3qUbS3zWfrYeQDTB/Qj6kX6Ybhw4B+bOYoLKCC9H3Nu/leUTZ1JdRWkkn2ldcCamzrcf47KKXdAJllSlxAOkRgyHsGC/zRday5Qld9DyoM4/q/rUoy/CXh3jzOu3bHUVZeU+DEn8FInkPBFlu3+nW3Nw0mk6vCDiWg8CeJaxEwuHS3+z5RgY+YBR6V1Z1nxSOfoaPa4LASWxxdNp+VWTk7+4vzaou8v8PN+xo+KY2xsw6une2frhw05CTYOmQvsEhjhWjn0bmXPjpE1+kplmmkP3suftwTubK9Vq22qKmrBhpY4jvd5afdRA3wGjFAgcnTK2s4hY0/GPNIb0nErGMCRxWOOX64Z8RAC4oCXdklmEvcL8o0BfkNK4lUg9HTl+oPlQxdNo3Mg4Nv175e/1LDGzZen30MEjRUtmXSfiTVu1kK8W4txyV6BMKlbgk3lMwYCiusNy9fVfvvwMxv8Ynl6vxoByANLTWplvuj/nF9m2+PDtt1eiHPBr1oIfhCChQMBw6Aw0UulqTKZdfVvfG7VcfIqLG9bcldL/+pdWTLxLUy8Qq38heUIjh4XlzZxzQm19lLFlr8vdQ97rjZVOLf8nclzckbcD4wxXMidpX30sFd37Fv/GtwwhzhxGVAprjbg0gCAEeIgwCZyTV2Z1REEW8O4py0wsjeloKoMr6iCY6dP92H6Vw/oTyICIthibxjm/DfN9lVz8IqtqKYLUXfoKVMVQVVJOElGjrnnUt9T9wbgp8AyYKaGlqingHZU/uG2NTZSVqwHQTWkx9hxjkpWDaCg6Ckj5qebgBVbT3V3NNXMSiWSDdGV3hrtzla7J+duwPOToIg42ChPQOQjspnSlp1V+Gjdged7+8UN5CRAV7a5EdFNwCjEaBR27b3W890TE7g24NAP/mMDXRWrGoFPQI9ls/MWO2dWFAar/xcOIImbbpA3zgAAAABJRU5ErkJggg==);
+        }
+    </style>
+    <div>
+        <a href="https://bokeh.org" target="_blank" class="bk-notebook-logo"></a>
+        <span id="p1001">Loading BokehJS ...</span>
+    </div>
+</div><script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  const force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+const JS_MIME_TYPE = 'application/javascript';
+  const HTML_MIME_TYPE = 'text/html';
+  const EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  const CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    const script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    const cell = handle.cell;
+
+    const id = cell.output_area._bokeh_element_id;
+    const server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      const cmd_clean = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd_clean, {
+        iopub: {
+          output: function(msg) {
+            const id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      const cmd_destroy = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd_destroy);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    const output_area = handle.output_area;
+    const output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    const toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      const bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      const script_attrs = bk_div.children[0].attributes;
+      for (let i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      const toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      const props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    const events = require('base/js/events');
+    const OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  const NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    const el = document.getElementById("p1001");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.0.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.0.2.min.js"];
+  const css_urls = [];
+
+  const inline_js = [    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {
+    }
+  ];
+
+  function run_inline_js() {
+    if (root.Bokeh !== undefined || force === true) {
+          for (let i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      const cell = $(document.getElementById("p1001")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">vocabulary</span><span class="p">):</span>
+
+    <span class="n">hist</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">vocabulary</span><span class="o">.</span><span class="n">most_common</span><span class="p">())),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">tools</span><span class="o">=</span><span class="s2">&quot;pan,wheel_zoom,reset,save&quot;</span><span class="p">,</span>
+               <span class="n">toolbar_location</span><span class="o">=</span><span class="s2">&quot;above&quot;</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Word distribution accross all twits&quot;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="n">hist</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">right</span><span class="o">=</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;#555555&quot;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">plot_distribution</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="659aac8b-c2c9-4215-9420-1595bacec8fe" data-root-id="p1002" style="display: contents;"></div>
+</div><script type="application/javascript">(function(root) {
+  function embed_document(root) {
+  const docs_json = {"adfa0e5d-59ff-4d9b-8a3d-27ccdf6718fb":{"version":"3.0.2","title":"Bokeh Application","defs":[],"roots":[{"type":"object","name":"Figure","id":"p1002","attributes":{"x_range":{"type":"object","name":"DataRange1d","id":"p1004"},"y_range":{"type":"object","name":"DataRange1d","id":"p1003"},"x_scale":{"type":"object","name":"LinearScale","id":"p1016"},"y_scale":{"type":"object","name":"LinearScale","id":"p1018"},"title":{"type":"object","name":"Title","id":"p1005","attributes":{"text":"Word distribution accross all twits"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1049","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1043","attributes":{"selected":{"type":"object","name":"Selection","id":"p1045","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1044"},"data":{"type":"map","entries":[["top",{"type":"ndarray","array":{"type":"bytes","data":"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A24+P+2GRIqC0kY/gAoGYwNuPj8AAAAAAAAAAOCHRIqC0kY/gAoGYwNuLj/4BwZjA24uP+CHRIqC0kY/AAAAAAAAAAD4BwZjA24uP4AKBmMDbj4/gAoGYwNuLj/4BwZjA24uP4AKBmMDbi4/AAAAAAAAAACACgZjA24uP/gHBmMDbj4/AAAAAAAAAACACgZjA24uPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACgZjA24uP4AKBmMDbj4/+AcGYwNuLj8AAAAAAAAAAIAKBmMDbi4/AAAAAAAAAACACgZjA24uPwAAAAAAAAAAgAoGYwNuLj/4BwZjA24uP4AKBmMDbi4/AAAAAAAAAAD4BwZjA24uPwAAAAAAAAAAAAAAAAAAAACACgZjA24uPwAAAAAAAAAAgAoGYwNuPj8AAAAAAAAAAAAAAAAAAAAAgAoGYwNuLj8AAAAAAAAAAAAAAAAAAAAA+AcGYwNuLj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACgZjA24+P4AKBmMDbi4/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4BwZjA24uPwAAAAAAAAAAAAAAAAAAAAD4BwZjA24+PwAAAAAAAAAAAAAAAAAAAACACgZjA24uP/gHBmMDbi4/AAAAAAAAAACACgZjA24uPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAoGYwNuLj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACgZjA24uPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4BwZjA24+PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACgZjA24uP4AKBmMDbi4/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAKBmMDbi4/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACgZjA24uPw=="},"shape":[500],"dtype":"float64","order":"little"}],["left",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[500],"dtype":"float64","order":"little"}],["right",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[500],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1050","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1051"}}},"glyph":{"type":"object","name":"Quad","id":"p1046","attributes":{"left":{"type":"field","field":"left"},"right":{"type":"field","field":"right"},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"top"},"line_color":{"type":"value","value":"#555555"},"fill_color":{"type":"value","value":"#1f77b4"}}},"nonselection_glyph":{"type":"object","name":"Quad","id":"p1047","attributes":{"left":{"type":"field","field":"left"},"right":{"type":"field","field":"right"},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"top"},"line_color":{"type":"value","value":"#555555"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#1f77b4"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Quad","id":"p1048","attributes":{"left":{"type":"field","field":"left"},"right":{"type":"field","field":"right"},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"top"},"line_color":{"type":"value","value":"#555555"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#1f77b4"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1007","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1034"},{"type":"object","name":"WheelZoomTool","id":"p1035"},{"type":"object","name":"ResetTool","id":"p1036"},{"type":"object","name":"SaveTool","id":"p1037"}]}},"toolbar_location":"above","left":[{"type":"object","name":"LinearAxis","id":"p1027","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1030","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1028"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p1029"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1020","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1023","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1021"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p1022"}}}],"center":[{"type":"object","name":"Grid","id":"p1026","attributes":{"axis":{"id":"p1020"}}},{"type":"object","name":"Grid","id":"p1033","attributes":{"dimension":1,"axis":{"id":"p1027"}}}]}}]}};
+  const render_items = [{"docid":"adfa0e5d-59ff-4d9b-8a3d-27ccdf6718fb","roots":{"p1002":"659aac8b-c2c9-4215-9420-1595bacec8fe"},"root_ids":["p1002"]}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    let attempts = 0;
+    const timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);</script></div>
+</div>
+<p>It’s clear now that a porcion of the words are overly represented. These kind of words are called <em>stop words</em>, and it is a common practice to remove them when doing text analysis. Let’s do it and see the distribution again:</p>
+<ul class="simple">
+<li><p>Además debe instalr <code class="docutils literal notranslate"><span class="pre">nltk</span></code> por medio de la orden</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\likyb\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+
+<span class="n">vocab_reduced</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stop</span><span class="p">:</span>
+        <span class="n">vocab_reduced</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">=</span><span class="n">c</span>
+
+<span class="n">vocab_reduced</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;&#39;, 123916),
+ (&#39;I&#39;, 32879),
+ (&quot;I&#39;m&quot;, 6416),
+ (&#39;like&#39;, 5086),
+ (&#39;-&#39;, 4922),
+ (&#39;get&#39;, 4864),
+ (&#39;u&#39;, 4194),
+ (&#39;good&#39;, 3953),
+ (&#39;love&#39;, 3494),
+ (&#39;know&#39;, 3472),
+ (&#39;go&#39;, 2990),
+ (&#39;see&#39;, 2868),
+ (&#39;one&#39;, 2787),
+ (&#39;got&#39;, 2774),
+ (&#39;think&#39;, 2613),
+ (&#39;&amp;amp;&#39;, 2556),
+ (&#39;lol&#39;, 2419),
+ (&#39;going&#39;, 2396),
+ (&#39;really&#39;, 2287),
+ (&#39;im&#39;, 2200)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This looks better, only in the 20 most common words we already see words that make sense: <em>good, love, really</em>… Let’s see the distribution now</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_distribution</span><span class="p">(</span><span class="n">vocab_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="1467f6a0-2fa4-4d68-accd-51d05c224a83" data-root-id="p1127" style="display: contents;"></div>
+</div><script type="application/javascript">(function(root) {
+  function embed_document(root) {
+  const docs_json = {"a41ea272-08fe-4d1f-a82c-c3efa8ae145a":{"version":"3.0.2","title":"Bokeh Application","defs":[],"roots":[{"type":"object","name":"Figure","id":"p1127","attributes":{"x_range":{"type":"object","name":"DataRange1d","id":"p1129"},"y_range":{"type":"object","name":"DataRange1d","id":"p1128"},"x_scale":{"type":"object","name":"LinearScale","id":"p1141"},"y_scale":{"type":"object","name":"LinearScale","id":"p1143"},"title":{"type":"object","name":"Title","id":"p1130","attributes":{"text":"Word distribution accross all twits"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1174","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1168","attributes":{"selected":{"type":"object","name":"Selection","id":"p1170","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1169"},"data":{"type":"map","entries":[["top",{"type":"ndarray","array":{"type":"bytes","data":"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AAAAAH4x5mUldT4/wjLmZSV1Lj8AAAAAAAAAAMIy5mUldS4/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMIy5mUldT4/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADow5mUldS4/AAAAAAAAAADCMuZlJXUuPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADCMuZlJXUuP8Iy5mUldS4/OjDmZSV1Lj8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6MOZlJXUuPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMIy5mUldS4/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADCMuZlJXUuPw=="},"shape":[500],"dtype":"float64","order":"little"}],["left",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[500],"dtype":"float64","order":"little"}],["right",{"type":"ndarray","array":{"type":"bytes","data":"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"},"shape":[500],"dtype":"float64","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1175","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1176"}}},"glyph":{"type":"object","name":"Quad","id":"p1171","attributes":{"left":{"type":"field","field":"left"},"right":{"type":"field","field":"right"},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"top"},"line_color":{"type":"value","value":"#555555"},"fill_color":{"type":"value","value":"#1f77b4"}}},"nonselection_glyph":{"type":"object","name":"Quad","id":"p1172","attributes":{"left":{"type":"field","field":"left"},"right":{"type":"field","field":"right"},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"top"},"line_color":{"type":"value","value":"#555555"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#1f77b4"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Quad","id":"p1173","attributes":{"left":{"type":"field","field":"left"},"right":{"type":"field","field":"right"},"bottom":{"type":"value","value":0},"top":{"type":"field","field":"top"},"line_color":{"type":"value","value":"#555555"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#1f77b4"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1132","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1159"},{"type":"object","name":"WheelZoomTool","id":"p1160"},{"type":"object","name":"ResetTool","id":"p1161"},{"type":"object","name":"SaveTool","id":"p1162"}]}},"toolbar_location":"above","left":[{"type":"object","name":"LinearAxis","id":"p1152","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1155","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1153"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p1154"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p1145","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1148","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1146"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p1147"}}}],"center":[{"type":"object","name":"Grid","id":"p1151","attributes":{"axis":{"id":"p1145"}}},{"type":"object","name":"Grid","id":"p1158","attributes":{"dimension":1,"axis":{"id":"p1152"}}}]}}]}};
+  const render_items = [{"docid":"a41ea272-08fe-4d1f-a82c-c3efa8ae145a","roots":{"p1127":"1467f6a0-2fa4-4d68-accd-51d05c224a83"},"root_ids":["p1127"]}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    let attempts = 0;
+    const timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);</script></div>
+</div>
+</section>
+<section id="removing-special-characters-and-trash">
+<h3>Removing special characters and “trash”<a class="headerlink" href="#removing-special-characters-and-trash" title="Permalink to this headline">#</a></h3>
+<p>We still se a very uneaven distribution. If you look closer, you’ll see that we’re also taking into consideration punctuation signs (‘-’, ‘,’, etc) and other html tags like <code class="docutils literal notranslate"><span class="pre">&amp;amp</span></code>. We can definitely remove them for the sentiment analysis, but we will try to keep the emoticons, since those <em>do</em> have a sentiment load:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">preprocessor</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return a cleaned version of text</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Remove HTML markup</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&lt;[^&gt;]*&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1"># Save emoticons for later appending</span>
+    <span class="n">emoticons</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;(?::|;|=)(?:-)?(?:\)|\(|D|P)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1"># Remove any non-word character and append the emoticons,</span>
+    <span class="c1"># removing the nose character for standarization. Convert to lower case</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[\W]+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">emoticons</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">text</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">(</span><span class="s1">&#39;This!! twit man :) is &lt;b&gt;nice&lt;/b&gt;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this twit man is nice :)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are almost ready! There is another trick we can use to reduce our vocabulary and consolidate words. If you think about it, words like: love, loving, etc. <em>Could</em> express the same positivity. If that was the case, we would be  having two words in our vocabulary when we could have only one: lov. This process of reducing a word to its root is called <strong>steaming</strong>.</p>
+<p>We also need a <em>tokenizer</em> to break down our twits in individual words. We will implement two tokenizers, a regular one and one that does steaming:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+
+<span class="n">porter</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">tokenizer_porter</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">porter</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">(</span><span class="s1">&#39;Hi there, I am loving this, like with a lot of love&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokenizer_porter</span><span class="p">(</span><span class="s1">&#39;Hi there, I am loving this, like with a lot of love&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hi&#39;, &#39;there,&#39;, &#39;I&#39;, &#39;am&#39;, &#39;loving&#39;, &#39;this,&#39;, &#39;like&#39;, &#39;with&#39;, &#39;a&#39;, &#39;lot&#39;, &#39;of&#39;, &#39;love&#39;]
+[&#39;hi&#39;, &#39;there,&#39;, &#39;i&#39;, &#39;am&#39;, &#39;love&#39;, &#39;this,&#39;, &#39;like&#39;, &#39;with&#39;, &#39;a&#39;, &#39;lot&#39;, &#39;of&#39;, &#39;love&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="training-logistic-regression">
+<h2>Training Logistic Regression<a class="headerlink" href="#training-logistic-regression" title="Permalink to this headline">#</a></h2>
+<p>We are finally ready to train our algorythm. We need to choose the best hyperparameters like the <em>learning rate</em> or <em>regularization strength</em>. We also would like to know if our algorithm performs better steaming words or not, or removing html or not, etc…</p>
+<p>To take these decisions methodically, we can use a Grid Search. Grid search is a method of training an algorythm with different variations of parameters to latter select the best combination</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># split the dataset in train and test</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;SentimentText&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;Sentiment&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the code line above, <code class="docutils literal notranslate"><span class="pre">stratify</span></code> will create a train set with the same class balance than the original set</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">strip_accents</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">lowercase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">preprocessor</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;vect__ngram_range&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)],</span>
+               <span class="s1">&#39;vect__stop_words&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">stop</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+               <span class="s1">&#39;vect__tokenizer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">tokenizer_porter</span><span class="p">],</span>
+               <span class="s1">&#39;vect__preprocessor&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">],</span>
+               <span class="s1">&#39;clf__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">],</span>
+               <span class="s1">&#39;clf__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">]},</span>
+              <span class="p">{</span><span class="s1">&#39;vect__ngram_range&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)],</span>
+               <span class="s1">&#39;vect__stop_words&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">stop</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+               <span class="s1">&#39;vect__tokenizer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">tokenizer_porter</span><span class="p">],</span>
+               <span class="s1">&#39;vect__preprocessor&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">],</span>
+               <span class="s1">&#39;vect__use_idf&#39;</span><span class="p">:[</span><span class="kc">False</span><span class="p">],</span>
+               <span class="s1">&#39;vect__norm&#39;</span><span class="p">:[</span><span class="kc">None</span><span class="p">],</span>
+               <span class="s1">&#39;clf__penalty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">],</span>
+               <span class="s1">&#39;clf__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">]},</span>
+              <span class="p">]</span>
+
+<span class="n">lr_tfidf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;vect&#39;</span><span class="p">,</span> <span class="n">tfidf</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))])</span>
+
+<span class="n">gs_lr_tfidf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">lr_tfidf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span>
+                           <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
+                           <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                           <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                           <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: This may take a long while to execute, like... 1 or 2 hours</span>
+<span class="c1"># gs_lr_tfidf.fit(X_train, y_train)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(&#39;Best parameter set: &#39; + str(gs_lr_tfidf.best_params_))</span>
+<span class="c1"># print(&#39;Best accuracy: %.3f&#39; % gs_lr_tfidf.best_score_)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="n">pickle_inn</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;logisticRegression.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">gs_lr_tfidf</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_inn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">EOFError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_18204</span><span class="o">/</span><span class="mf">1849512255.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pickle_inn</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;logisticRegression.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">gs_lr_tfidf</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_inn</span><span class="p">)</span>
+
+<span class="ne">EOFError</span>: Ran out of input
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interestingly, the set of parameters that best results give us are:</p>
+<ul class="simple">
+<li><p>A regularization strength of <code class="docutils literal notranslate"><span class="pre">1.0</span></code> using <code class="docutils literal notranslate"><span class="pre">l2</span></code> regularization</p></li>
+<li><p>Using our <code class="docutils literal notranslate"><span class="pre">preprocessor</span></code> (removing html, keeping emoticons, etc) <em>does</em> improve the performance</p></li>
+<li><p>Surprisingly, removing stop words does not improve accuracy</p></li>
+<li><p>word steming doesn’t seem to help either</p></li>
+</ul>
+<p>As youcan see, sometimes intuition may lead to wrong decisions, and it’s important to <em>test</em> all our assumptions.</p>
+<p>Let’s see what’s our best accuracy then:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">gs_lr_tfidf</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy in test: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy in test: 0.770
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we would like to use the classifier in another place, or just not train it again and again everytime, we can save the model in a pickle file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pickle</span>
+<span class="c1"># import os</span>
+
+<span class="c1"># pickle.dump(clf, open(os.path.join(&#39;data&#39;, &#39;logisticRegression.pkl&#39;), &#39;wb&#39;), protocol=4)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s run some tests :-)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">twits</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;This is really bad, I don&#39;t like it at all&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;I love this!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;:)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;I&#39;m sad... :(&quot;</span>
+<span class="p">]</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">twits</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">twits</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">twits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> --&gt; </span><span class="si">{</span><span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is really bad, I don&#39;t like it at all --&gt; 0
+I love this! --&gt; 1
+:) --&gt; 1
+I&#39;m sad... :( --&gt; 0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="and-you-re-done-i-hope-you-liked-this">
+<h2>And you’re done! I hope you liked this!<a class="headerlink" href="#and-you-re-done-i-hope-you-liked-this" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Lihki Rubio y Carlos de Oro<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
