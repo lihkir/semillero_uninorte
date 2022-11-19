@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; Semillero de Investigadores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Semillero de Investigadores &#8212; Semillero de Investigación</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -31,7 +32,6 @@
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -52,19 +52,16 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
     
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
 <!-- Checkboxes to toggle the left sidebar -->
@@ -95,17 +92,12 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
       
       
-      <img src="_static/logo-uninorte.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Semillero de Investigadores</h1>
+      <h1 class="site-logo" id="site-title">Semillero de Investigación</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="#" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -114,14 +106,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Semillero de Investigadores
+                    Welcome to your Jupyter Book
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Semillero de Investigadores
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks.html">
-   Análisis de datos cuantitativos
+   Content with notebooks
   </a>
  </li>
 </ul>
@@ -214,7 +211,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmarkdown.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -234,22 +231,125 @@ title="Open an issue"
   </div>
 </div>
 
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/markdown.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos-del-programa">
+   Objetivos del Programa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-quien-va-dirigido">
+   A quién va dirigido
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modalidad">
+   Modalidad
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
+                <h1>Semillero de Investigadores</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objetivos-del-programa">
+   Objetivos del Programa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-quien-va-dirigido">
+   A quién va dirigido
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modalidad">
+   Modalidad
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -257,36 +357,50 @@ title="Open an issue"
                 
               <div>
                 
-  <h1 id="search-documentation">Search</h1>
-  
-  <noscript>
-  <div class="admonition warning">
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  </noscript>
-  
-  
-  <p>
-    Searching for multiple words only shows matches that contain
-    all words.
-  </p>
-  
-  
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  
-  
-  <div id="search-results">
-  
-  </div>
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="semillero-de-investigadores">
+<h1>Semillero de Investigadores<a class="headerlink" href="#semillero-de-investigadores" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>El <code class="docutils literal notranslate"><span class="pre">Programa</span> <span class="pre">Semillero</span> <span class="pre">de</span> <span class="pre">Investigadores</span></code> se constituye, desde 1997, en un espacio que permite al estudiante de Uninorte de las diferentes divisiones académicas, fortalecer su formación integral. Ofrece a estudiantes, de tercero a séptimo semestre, herramientas para desarrollar habilidades generales sobre el uso de métodos y técnicas de investigación científica y desarrollo tecnológico, con el fin de fortalecer su participación en programas, líneas, proyectos de investigación y desarrollo tecnológico institucional.</p></li>
+</ul>
+<section id="objetivos-del-programa">
+<h2>Objetivos del Programa<a class="headerlink" href="#objetivos-del-programa" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Desarrollar habilidades generales en un grupo de estudiantes de diferentes divisiones académicas sobre el uso de métodos y técnicas de investigación científica y desarrollo tecnológico con el fin de fortalecer su participación en grupos, líneas de investigación y proyectos de investigación y desarrollo tecnológico institucional.</p></li>
+</ul>
+</section>
+<section id="a-quien-va-dirigido">
+<h2>A quién va dirigido<a class="headerlink" href="#a-quien-va-dirigido" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>A estudiantes de la Universidad del Norte matriculados en los diferentes programas académicos de pregrado, interesados por la formación investigativa y que cumplan con los requisitos de la convocatoria vigente.</p></li>
+</ul>
+</section>
+<section id="modalidad">
+<h2>Modalidad<a class="headerlink" href="#modalidad" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>El Semillero de Investigadores se desarrolla durante dos semestres académicos en los cuales el estudiante deberá asistir a sesiones los sábados en el horario de 9:30 am a 12:30 pm y desarrollar una experiencia en investigación. De la misma manera, se han definido las estrategias necesarias para hacer seguimiento y evaluar las acciones del trabajo investigativo.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -295,6 +409,20 @@ title="Open an issue"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="notebooks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Content with notebooks</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -304,7 +432,7 @@ title="Open an issue"
   
     By Lihki Rubio<br/>
   
-      &copy; Copyright Departamento de Matemáticas y Estadística.<br/>
+      &copy; Copyright 2022.<br/>
 </p>
         </footer>
     </div>

@@ -1,5 +1,18 @@
-# Machine Learning
+# Semillero de Investigadores
 
-- El **machine learning** es el estudio de los algoritmos informáticos que pueden mejorar automáticamente a través de la experiencia y el uso de datos. Los algoritmos de **machine learning** construyen un modelo basado en datos de muestra, conocidos como datos de *entrenamiento*, con el fin de hacer *predicciones o tomar decisiones* sin estar explícitamente programados para ello. Los algoritmos de **machine learning** se utilizan en una amplia variedad de aplicaciones, como en *medicina, filtrado de correo electrónico, reconocimiento de voz y visión por ordenador*, donde es difícil o inviable desarrollar algoritmos convencionales para realizar las tareas necesarias.
+- El [Programa Semillero de Investigadores](https://www.uninorte.edu.co/web/investigacion-desarrollo-e-innovacion/semillero-de-investigadores) se constituye, desde 1997, en un espacio que permite al estudiante de `Uninorte` de las diferentes divisiones académicas, fortalecer su formación integral. Ofrece a estudiantes, de tercero a séptimo semestre, herramientas para desarrollar habilidades generales sobre el uso de métodos y técnicas de investigación científica y desarrollo tecnológico, con el fin de `fortalecer su participación en programas, líneas, proyectos de investigación y desarrollo tecnológico institucional`.
 
-- Un subconjunto del **machine learning** está estrechamente relacionado con la **estadística computacional**, que se centra en la realización de predicciones mediante ordenadores. El estudio de la **optimización matemática** aporta métodos, teoría y dominios de aplicación al campo del **machine learning**. La **minería de datos** es un campo de estudio relacionado, que se centra en el análisis exploratorio de datos a través del aprendizaje no supervisado. Algunas implementaciones del aprendizaje automático utilizan datos y redes neuronales de una manera que imita el funcionamiento de un cerebro biológico. En su aplicación a los problemas empresariales, el aprendizaje automático también se conoce como análisis predictivo.
+- **`Objetivos del Programa`**
+
+    Desarrollar habilidades generales en un grupo de estudiantes de diferentes divisiones académicas sobre el uso de métodos y técnicas de investigación científica y desarrollo tecnológico con el fin de fortalecer su participación en grupos, líneas de investigación y proyectos de investigación y desarrollo tecnológico institucional.
+
+- **`A quién va dirigido`**
+
+    A estudiantes de la Universidad del Norte matriculados en los diferentes programas académicos de pregrado, interesados por la formación investigativa y que cumplan con los requisitos de la convocatoria vigente.
+
+- **`Modalidad`**
+
+    El `Semillero de Investigadores` se desarrolla durante dos semestres académicos en los cuales el estudiante deberá asistir a sesiones los `sábados en el horario de 9:30 am a 12:30 pm` y desarrollar una experiencia en investigación. De la misma manera, se han definido las estrategias necesarias para hacer seguimiento y evaluar las acciones del trabajo investigativo.
+
+```{tableofcontents}
+```
