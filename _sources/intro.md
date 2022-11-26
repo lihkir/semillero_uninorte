@@ -1,5 +1,7 @@
 # Semillero de Investigadores
 
+## Análisis de datos cuantitativos
+
 - El [Programa Semillero de Investigadores](https://www.uninorte.edu.co/web/investigacion-desarrollo-e-innovacion/semillero-de-investigadores) se constituye, desde 1997, en un espacio que permite al estudiante de `Uninorte` de las diferentes divisiones académicas, fortalecer su formación integral. Ofrece a estudiantes, de tercero a séptimo semestre, herramientas para desarrollar habilidades generales sobre el uso de métodos y técnicas de investigación científica y desarrollo tecnológico, con el fin de `fortalecer su participación en programas, líneas, proyectos de investigación y desarrollo tecnológico institucional`.
 
 - **`Objetivos del Programa`**

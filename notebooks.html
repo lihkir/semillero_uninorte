@@ -56,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Árboles de decisión" href="decision_tree.html" />
     <link rel="prev" title="Semillero de Investigadores" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -120,6 +121,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Análisis de datos cuantitativos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decision_tree.html">
+   Árboles de decisión
   </a>
  </li>
 </ul>
@@ -478,11 +484,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelos-predictivos">
-   Modelos predictivos
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -651,11 +652,6 @@ title="Print to PDF"
     </ul>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelos-predictivos">
-   Modelos predictivos
-  </a>
  </li>
 </ul>
 
@@ -1201,9 +1197,6 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<ul class="simple">
-<li><p>Recuerde que dependiendo de cuales sean los valores obtenidos para la mediana y la media, podemos identificar sesgo en nuestros datos</p></li>
-</ul>
 <figure class="align-center" id="sesgo-media-mediana">
 <img alt="_images/sesgo_media_mediana.png" src="_images/sesgo_media_mediana.png" />
 <figcaption>
@@ -3719,7 +3712,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_108_0.png" src="_images/notebooks_108_0.png" />
+<img alt="_images/notebooks_107_0.png" src="_images/notebooks_107_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -3732,7 +3725,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_110_0.png" src="_images/notebooks_110_0.png" />
+<img alt="_images/notebooks_109_0.png" src="_images/notebooks_109_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -3752,7 +3745,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_113_0.png" src="_images/notebooks_113_0.png" />
+<img alt="_images/notebooks_112_0.png" src="_images/notebooks_112_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -3765,7 +3758,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_115_0.png" src="_images/notebooks_115_0.png" />
+<img alt="_images/notebooks_114_0.png" src="_images/notebooks_114_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -3785,7 +3778,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_118_0.png" src="_images/notebooks_118_0.png" />
+<img alt="_images/notebooks_117_0.png" src="_images/notebooks_117_0.png" />
 </div>
 </div>
 <p>Qué valores de las características son más frecuentes en el conjunto de datos (en este caso, hay dos picos en torno a 6.8 y 8.5 respectivamente, nótese que <code class="docutils literal notranslate"><span class="pre">log(price)</span> <span class="pre">=</span> <span class="pre">valores</span></code>, en este caso</p>
@@ -4020,7 +4013,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_133_0.png" src="_images/notebooks_133_0.png" />
+<img alt="_images/notebooks_132_0.png" src="_images/notebooks_132_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -4034,7 +4027,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_135_0.png" src="_images/notebooks_135_0.png" />
+<img alt="_images/notebooks_134_0.png" src="_images/notebooks_134_0.png" />
 </div>
 </div>
 <p>Observe cómo la función <code class="docutils literal notranslate"><span class="pre">catplot()</span></code> no requiere que creemos la tabla de recuento intermedia (utilizando <code class="docutils literal notranslate"><span class="pre">pd.crosstab()</span></code>), y reduce un paso en el proceso de trazado.</p>
@@ -4057,7 +4050,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_139_0.png" src="_images/notebooks_139_0.png" />
+<img alt="_images/notebooks_138_0.png" src="_images/notebooks_138_0.png" />
 </div>
 </div>
 <p>Aquí, las líneas negras (barras de error) de los rectángulos indican la incertidumbre (o dispersión de los valores) en torno a la estimación de la media. Las funciones mencionadas van mucho más allá de un simple recuento: aplican una función que calcula una medida de tendencia central (por defecto es el valor medio) y muestran, aplicando <code class="docutils literal notranslate"><span class="pre">bootstrapping</span></code>, el intervalo de confianza del 95% para dicha medida. Por defecto, este valor está fijado en un 95% de confianza. ¿Cómo lo cambiamos? Utilizando el parámetro <code class="docutils literal notranslate"><span class="pre">ci=68</span></code>, por ejemplo, lo fijamos en el 68%. También podemos representar la desviación estándar en los precios utilizando <code class="docutils literal notranslate"><span class="pre">ci=sd</span></code>.</p>
@@ -4072,7 +4065,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_142_0.png" src="_images/notebooks_142_0.png" />
+<img alt="_images/notebooks_141_0.png" src="_images/notebooks_141_0.png" />
 </div>
 </div>
 </section>
@@ -4213,7 +4206,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_150_0.png" src="_images/notebooks_150_0.png" />
+<img alt="_images/notebooks_149_0.png" src="_images/notebooks_149_0.png" />
 </div>
 </div>
 <p>Aquí podemos observar que los <code class="docutils literal notranslate"><span class="pre">patrones</span> <span class="pre">de</span> <span class="pre">precios</span> <span class="pre">de</span> <span class="pre">los</span> <span class="pre">diamantes</span> <span class="pre">de</span> <span class="pre">diferentes</span> <span class="pre">colores</span> <span class="pre">son</span> <span class="pre">similares</span> <span class="pre">para</span> <span class="pre">cada</span> <span class="pre">calidad</span> <span class="pre">de</span> <span class="pre">talla</span></code> <code class="docutils literal notranslate"><span class="pre">cut</span></code>.</p>
@@ -4352,7 +4345,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_158_0.png" src="_images/notebooks_158_0.png" />
+<img alt="_images/notebooks_157_0.png" src="_images/notebooks_157_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4363,7 +4356,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_159_0.png" src="_images/notebooks_159_0.png" />
+<img alt="_images/notebooks_158_0.png" src="_images/notebooks_158_0.png" />
 </div>
 </div>
 <p>En la llamada anterior a <code class="docutils literal notranslate"><span class="pre">ax.legend()</span></code>, el parámetro <code class="docutils literal notranslate"><span class="pre">ncol</span></code> denota el número de columnas en las que deben organizarse los valores de la leyenda, y el parámetro <code class="docutils literal notranslate"><span class="pre">loc</span></code> especifica la ubicación de la leyenda y puede tomar cualquiera de los ocho valores <code class="docutils literal notranslate"><span class="pre">'upper</span> <span class="pre">left',</span> <span class="pre">'upper</span> <span class="pre">right',</span> <span class="pre">'lower</span> <span class="pre">left',</span> <span class="pre">'lower</span> <span class="pre">right'</span></code>.</p>
@@ -4380,7 +4373,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_162_0.png" src="_images/notebooks_162_0.png" />
+<img alt="_images/notebooks_161_0.png" src="_images/notebooks_161_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -4397,7 +4390,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_164_0.png" src="_images/notebooks_164_0.png" />
+<img alt="_images/notebooks_163_0.png" src="_images/notebooks_163_0.png" />
 </div>
 </div>
 <p>La función de rotación es especialmente útil cuando las etiquetas de ticks son largas y se amontonan en el eje <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -4540,7 +4533,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_173_0.png" src="_images/notebooks_173_0.png" />
+<img alt="_images/notebooks_172_0.png" src="_images/notebooks_172_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -4703,7 +4696,7 @@ memory usage: 4.1+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_183_0.png" src="_images/notebooks_183_0.png" />
+<img alt="_images/notebooks_182_0.png" src="_images/notebooks_182_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -4893,7 +4886,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_202_0.png" src="_images/notebooks_202_0.png" />
+<img alt="_images/notebooks_201_0.png" src="_images/notebooks_201_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Nótese que el gráfico de dispersión muestra una disminución del <em>mileage (mpg)</em> con un aumento del <em>weight</em>. Es una visión útil de las relaciones entre las diferentes características del conjunto de datos. Si deseamos calcular la correlación negativa que se puede visualizar usamos la función utilizamos <code class="docutils literal notranslate"><span class="pre">np.corrcoef(mpg_df[&quot;weight&quot;],</span> <span class="pre">(mpg_df[&quot;mpg&quot;])</span></code></p>
@@ -4944,7 +4937,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_211_0.png" src="_images/notebooks_211_0.png" />
+<img alt="_images/notebooks_210_0.png" src="_images/notebooks_210_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Como puede observar, el histograma de los ejes superior y derecho representa la varianza de las características representadas por los ejes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> respectivamente (<code class="docutils literal notranslate"><span class="pre">mpg</span></code> y <code class="docutils literal notranslate"><span class="pre">weight</span></code>, en este ejemplo). Además, es posible que haya notado <code class="docutils literal notranslate"><span class="pre">en</span> <span class="pre">el</span> <span class="pre">gráfico</span> <span class="pre">de</span> <span class="pre">dispersión</span> <span class="pre">anterior</span> <span class="pre">que</span> <span class="pre">los</span> <span class="pre">datos</span> <span class="pre">se</span> <span class="pre">superponían</span> <span class="pre">fuertemente</span> <span class="pre">en</span> <span class="pre">ciertas</span> <span class="pre">áreas,</span> <span class="pre">ocultando</span> <span class="pre">la</span> <span class="pre">distribución</span> <span class="pre">real</span> <span class="pre">de</span> <span class="pre">las</span> <span class="pre">características</span></code>. Los gráficos <strong>Hexbin</strong> son una buena herramienta de visualización utilizada cuando los datos son muy densos.</p>
@@ -4994,7 +4987,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_222_0.png" src="_images/notebooks_222_0.png" />
+<img alt="_images/notebooks_221_0.png" src="_images/notebooks_221_0.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Observación:</span></code> En nuestro ejemplo de <code class="docutils literal notranslate"><span class="pre">weight</span></code> frente a <code class="docutils literal notranslate"><span class="pre">mileage</span> <span class="pre">(mpg)</span></code>, el diagrama hexagonal y el diagrama de contorno indican que hay una determinada curva a lo largo de la cual la relación negativa entre el peso y el kilometraje es más fuerte, como es evidente por el mayor número de puntos de datos. La relación negativa se vuelve relativamente más débil a medida que nos alejamos de la curva (menos volumen de datos).</p>
@@ -5042,7 +5035,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_232_0.png" src="_images/notebooks_232_0.png" />
+<img alt="_images/notebooks_231_0.png" src="_images/notebooks_231_0.png" />
 </div>
 </div>
 <p><strong>Observación</strong>: En este ejemplo, vemos que la característica <code class="docutils literal notranslate"><span class="pre">model_year</span></code> sólo toma valores discretos entre 70 y 82. Ahora, cuando tenemos una característica numérica discreta como esta (<code class="docutils literal notranslate"><span class="pre">model_year</span></code>), dibujar un gráfico de líneas uniendo los puntos de datos es una buena idea. Podemos dibujar un simple gráfico de líneas que muestre la relación entre model_year y mpg con el siguiente código.</p>
@@ -5056,7 +5049,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_234_0.png" src="_images/notebooks_234_0.png" />
+<img alt="_images/notebooks_233_0.png" src="_images/notebooks_233_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Como podemos ver, los puntos conectados por la línea sólida representan la media de la característica del eje <span class="math notranslate nohighlight">\(y\)</span> en la coordenada <span class="math notranslate nohighlight">\(x\)</span> correspondiente. El área sombreada alrededor de la línea muestra el intervalo de confianza para la característica del eje <span class="math notranslate nohighlight">\(y\)</span> (por defecto, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> establece el intervalo de confianza del 95%). El parámetro <code class="docutils literal notranslate"><span class="pre">ci</span></code> puede utilizarse para cambiar a un intervalo de confianza diferente.</p>
@@ -5070,7 +5063,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_237_0.png" src="_images/notebooks_237_0.png" />
+<img alt="_images/notebooks_236_0.png" src="_images/notebooks_236_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Como podemos ver en el gráfico anterior, el intervalo de confianza del 68% se traduce en un rango de valores de características en el que están presentes el 68% de los puntos de datos. Los gráficos de líneas son excelentes técnicas de visualización para escenarios en los que tenemos datos que cambian con el tiempo, eje <span class="math notranslate nohighlight">\(x\)</span>, podría representar la fecha o el tiempo, y el gráfico ayudaría a visualizar cómo un valor varía a lo largo de ese periodo</p>
@@ -5132,7 +5125,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_245_0.png" src="_images/notebooks_245_0.png" />
+<img alt="_images/notebooks_244_0.png" src="_images/notebooks_244_0.png" />
 </div>
 </div>
 <p><strong>Observación</strong> Con este ejemplo de 12 gráficos de líneas, podemos ver cómo una figura con demasiados gráficos de líneas rápidamente comienza a confundirse. Por lo tanto, para ciertos escenarios, los gráficos de líneas no son no son atractivos ni útiles. Entonces, ¿cuál es la alternativa para nuestro caso de uso? Lo veremos en el siguiente ejercicio</p>
@@ -5182,7 +5175,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_253_0.png" src="_images/notebooks_253_0.png" />
+<img alt="_images/notebooks_252_0.png" src="_images/notebooks_252_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Aquí podemos observar que el número total de vuelos anuales aumentó de forma constante desde 1949 a 1960. Además, los meses de julio y agosto parecen tener el mayor número de vuelos (en comparación con el resto de los meses) en todos los años de observación.</p>
@@ -5196,7 +5189,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_256_0.png" src="_images/notebooks_256_0.png" />
+<img alt="_images/notebooks_255_0.png" src="_images/notebooks_255_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Nótese que el orden de los meses se ha reordenado en los gráficos, pero algunos meses (por ejemplo, julio y agosto) se han mantenido juntos debido a sus <strong>tendencias similares</strong>. Tanto en julio como en agosto, el número de vuelos aumentó de forma relativamente más drástica en los últimos años hasta 1960. ¿Cómo se calcula la similitud entre filas y columnas? La respuesta es que depende de la métrica de distancia</p>
@@ -5210,7 +5203,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_259_0.png" src="_images/notebooks_259_0.png" />
+<img alt="_images/notebooks_258_0.png" src="_images/notebooks_258_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -5223,7 +5216,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_261_0.png" src="_images/notebooks_261_0.png" />
+<img alt="_images/notebooks_260_0.png" src="_images/notebooks_260_0.png" />
 </div>
 </div>
 <p><strong>Observación:</strong> Al leer sobre la métrica de la distancia, aprendemos que define la distancia entre dos filas/columnas. Sin embargo, si nos fijamos bien, vemos que el mapa de calor también agrupa no sólo filas o columnas individuales, sino también grupos de filas o columnas individuales. Aquí es donde entra en juego la vinculación.</p>
@@ -5278,7 +5271,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_270_0.png" src="_images/notebooks_270_0.png" />
+<img alt="_images/notebooks_269_0.png" src="_images/notebooks_269_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -5291,7 +5284,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_272_0.png" src="_images/notebooks_272_0.png" />
+<img alt="_images/notebooks_271_0.png" src="_images/notebooks_271_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5301,7 +5294,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_273_0.png" src="_images/notebooks_273_0.png" />
+<img alt="_images/notebooks_272_0.png" src="_images/notebooks_272_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5311,7 +5304,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_274_0.png" src="_images/notebooks_274_0.png" />
+<img alt="_images/notebooks_273_0.png" src="_images/notebooks_273_0.png" />
 </div>
 </div>
 <p><strong>Observación</strong> Los mapas de calor también son una buena forma de visualizar lo que ocurre en un espacio 2D. Por ejemplo, pueden utilizarse para mostrar dónde hay más acción en el campo en un partido de fútbol. Del mismo modo, en un sitio web, <strong>los mapas de calor se pueden utilizar para mostrar las áreas que son más más frecuentadas por los usuarios</strong>.</p>
@@ -5346,7 +5339,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_281_0.png" src="_images/notebooks_281_0.png" />
+<img alt="_images/notebooks_280_0.png" src="_images/notebooks_280_0.png" />
 </div>
 </div>
 <p>Este histograma muestra la distribución de la característica de peso junto con la media y la mediana. Observe que <strong>la media no es igual a la mediana, lo que significa que la característica no está distribuida normalmente</strong>.</p>
@@ -5480,7 +5473,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_290_0.png" src="_images/notebooks_290_0.png" />
+<img alt="_images/notebooks_289_0.png" src="_images/notebooks_289_0.png" />
 </div>
 </div>
 <p>Como podemos ver, los límites de la caja indican el rango intercuartil, el límite superior marca el cuartil del 25% y el límite inferior el cuartil del 75%. La línea horizontal dentro de la caja indica la mediana. Cualquier punto aislado fuera de los bigotes (las barras en forma de <span class="math notranslate nohighlight">\(T\)</span> por encima y por debajo de la caja) marca los valores atípicos, mientras que los propios bigotes muestran los valores mínimos y máximos que no son valores atípicos. Aparentemente, el millaje mejoró sustancialmente en los 80 en comparación con los 70.</p>
@@ -5610,7 +5603,7 @@ como por ejemplo:</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;model_decade&#39;, ylabel=&#39;mpg&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/notebooks_295_1.png" src="_images/notebooks_295_1.png" />
+<img alt="_images/notebooks_294_1.png" src="_images/notebooks_294_1.png" />
 </div>
 </div>
 <p>También podemos añadir otra característica, por ejemplo, la región de origen, y ver cómo afecta a la relación entre el kilometraje y el año de fabricación, las dos características que hemos estado considerando hasta ahora</p>
@@ -5624,7 +5617,7 @@ como por ejemplo:</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/notebooks_298_0.png" src="_images/notebooks_298_0.png" />
+<img alt="_images/notebooks_297_0.png" src="_images/notebooks_297_0.png" />
 </div>
 </div>
 <p>Como podemos ver, según el conjunto de datos de mpg, en los años 70 y principios de los 80, Europa y Japón produjeron coches con mejor millaje que los Estados Unidos.</p>
@@ -5671,7 +5664,7 @@ como por ejemplo:</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;model_decade&#39;, ylabel=&#39;mpg&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/notebooks_307_1.png" src="_images/notebooks_307_1.png" />
+<img alt="_images/notebooks_306_1.png" src="_images/notebooks_306_1.png" />
 </div>
 </div>
 <ul class="simple">
@@ -5697,9 +5690,6 @@ como por ejemplo:</p></li>
 </section>
 </section>
 </section>
-<section id="modelos-predictivos">
-<h2>Modelos predictivos<a class="headerlink" href="#modelos-predictivos" title="Permalink to this headline">#</a></h2>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -5711,16 +5701,16 @@ como por ejemplo:</p></li>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "ml_venv"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "ml_venv",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ml_venv'</script>
 
               </div>
               
@@ -5735,6 +5725,13 @@ como por ejemplo:</p></li>
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Semillero de Investigadores</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="decision_tree.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Árboles de decisión</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

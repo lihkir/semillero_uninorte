@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Análisis de datos cuantitativos" href="notebooks.html" />
+    <link rel="next" title="Visualización de datos" href="data_viz.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,8 +116,18 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Análisis de datos cuantitativos
+  <a class="reference internal" href="data_viz.html">
+   Visualización de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decision_tree.html">
+   Modelo predictivo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_evaluation.html">
+   Evaluación de modelos
   </a>
  </li>
 </ul>
@@ -275,12 +285,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-de-datos-cuantitativos">
+   Análisis de datos cuantitativos
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -292,6 +326,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-de-datos-cuantitativos">
+   Análisis de datos cuantitativos
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -301,6 +348,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="semillero-de-investigadores">
 <h1>Semillero de Investigadores<a class="headerlink" href="#semillero-de-investigadores" title="Permalink to this headline">#</a></h1>
+<section id="analisis-de-datos-cuantitativos">
+<h2>Análisis de datos cuantitativos<a class="headerlink" href="#analisis-de-datos-cuantitativos" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>El <a class="reference external" href="https://www.uninorte.edu.co/web/investigacion-desarrollo-e-innovacion/semillero-de-investigadores">Programa Semillero de Investigadores</a> se constituye, desde 1997, en un espacio que permite al estudiante de <code class="docutils literal notranslate"><span class="pre">Uninorte</span></code> de las diferentes divisiones académicas, fortalecer su formación integral. Ofrece a estudiantes, de tercero a séptimo semestre, herramientas para desarrollar habilidades generales sobre el uso de métodos y técnicas de investigación científica y desarrollo tecnológico, con el fin de <code class="docutils literal notranslate"><span class="pre">fortalecer</span> <span class="pre">su</span> <span class="pre">participación</span> <span class="pre">en</span> <span class="pre">programas,</span> <span class="pre">líneas,</span> <span class="pre">proyectos</span> <span class="pre">de</span> <span class="pre">investigación</span> <span class="pre">y</span> <span class="pre">desarrollo</span> <span class="pre">tecnológico</span> <span class="pre">institucional</span></code>.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">Objetivos</span> <span class="pre">del</span> <span class="pre">Programa</span></code></strong></p>
@@ -315,9 +364,12 @@ title="Print to PDF"
 </ul>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Análisis de datos cuantitativos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_viz.html">Visualización de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decision_tree.html">Modelo predictivo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_evaluation.html">Evaluación de modelos</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -347,10 +399,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="notebooks.html" title="next page">
+    <a class='right-next' id="next-link" href="data_viz.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Análisis de datos cuantitativos</p>
+        <p class="prev-next-title">Visualización de datos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -361,7 +413,7 @@ title="Print to PDF"
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Lihki Rubio<br/>
+    By Lihki Rubio - Email lihkir@uninorte.edu.co<br/>
   
       &copy; Copyright Departamento de Matemáticas y Estadística.<br/>
 </p>
